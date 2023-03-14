@@ -19,6 +19,7 @@ import {
   getPlacesInHome,
   updatePlace,
 } from "./controller/place.js";
+import { bookingPlace } from "./controller/booking.js";
 
 dotenv.config();
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
@@ -81,6 +82,7 @@ app.put("/places", updatePlace);
 app.delete("/deleteplace/:id", deletePlace);
 app.get("/places", getPlacesInHome);
 app.get("/place/:id", getPlace);
+app.post("/bookings", bookingPlace);
 
 app.listen(5000, () => {
   console.log("server start");
