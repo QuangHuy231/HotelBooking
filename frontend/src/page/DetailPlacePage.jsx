@@ -9,7 +9,7 @@ const DetailPlacePage = () => {
     if (!id) {
       return;
     }
-    axios.get(`/places/${id}`).then((response) => {
+    axios.get(`/place/${id}`).then((response) => {
       setPlace(response.data);
     });
   }, [id]);

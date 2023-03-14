@@ -80,7 +80,7 @@ app.get("/user-places", getPlaces);
 app.put("/places", updatePlace);
 app.delete("/deleteplace/:id", deletePlace);
 app.get("/places", getPlacesInHome);
-app.get("/places/:id", getPlace);
+app.get("/place/:id", getPlace);
 
 app.listen(5000, () => {
   console.log("server start");

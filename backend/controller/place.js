@@ -13,6 +13,7 @@ export const addNewPlace = async (req, res) => {
     checkIn,
     checkOut,
     maxGuests,
+    price,
   } = req.body;
   jwt.verify(access_token, "jwtSecret", {}, async (err, data) => {
     if (err) return res.status(403).json("Token is not valid");
@@ -27,6 +28,7 @@ export const addNewPlace = async (req, res) => {
       checkIn,
       checkOut,
       maxGuests,
+      price,
     });
     res.json(placeDoc);
   });
@@ -59,6 +61,7 @@ export const updatePlace = async (req, res) => {
     checkIn,
     checkOut,
     maxGuests,
+    price,
   } = req.body;
 
   jwt.verify(access_token, "jwtSecret", {}, async (err, data) => {
@@ -75,6 +78,7 @@ export const updatePlace = async (req, res) => {
         checkIn,
         checkOut,
         maxGuests,
+        price,
       });
       await placeData.save();
       res.json("Successfully");

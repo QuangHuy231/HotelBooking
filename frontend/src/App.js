@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import ProfilePage from "./page/ProfilePage";
 import AccountPage from "./page/AccountPage";
@@ -27,7 +27,8 @@ function App() {
           <Route path="/account/places/:id" element={<PlacesFormPage />} />
           <Route path="/account/places/new" element={<PlacesFormPage />} />
         </Route>
-        <Route path="/places/:id" element={<DetailPlacePage />} />
+        <Route path="/place/:id" element={<DetailPlacePage />} />
+        <Route path="/*" element={<Navigate to="/login" replace />} />
       </Route>
     </Routes>
   );
