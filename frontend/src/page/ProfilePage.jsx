@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 const ProfilePage = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setLoginned } = useContext(UserContext);
   const navigate = useNavigate();
   const logout = async () => {
     await axios.post("/logout");
     setUser(null);
+    setLoginned(false);
     navigate("/");
   };
   return (

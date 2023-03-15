@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [err, setError] = useState(null);
-  const { setUser } = useContext(UserContext);
+  const { setUser, setReady } = useContext(UserContext);
   const login = async (e) => {
     e.preventDefault();
     try {
@@ -17,7 +17,7 @@ const Login = () => {
         password,
       });
       setUser(data);
-
+      setReady(true);
       navigate("/");
     } catch (err) {
       setError(err.response.data);

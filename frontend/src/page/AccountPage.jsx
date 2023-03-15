@@ -4,9 +4,13 @@ import AccountNav from "../components/AccountNav";
 import { UserContext } from "../context/UserContext";
 
 const AccountPage = () => {
-  const { user } = useContext(UserContext);
+  const { user, ready } = useContext(UserContext);
 
-  if (!user) {
+  if (!ready) {
+    return "Loading...";
+  }
+
+  if (ready && !user) {
     return <Navigate to={"/login"} />;
   }
 
